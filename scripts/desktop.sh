@@ -190,7 +190,8 @@ esac
 unset _p
 export PATH PDK_ROOT="${PDK_ROOT:-/opt/pdk}" PDK="${PDK:-sky130A}" \
        FLOW_HOME="${FLOW_HOME:-/OpenROAD-flow-scripts/flow}"
-if [ "$PWD" = "$HOME" ] && [ -z "${ECE4203_CD_DONE:-}" ]; then
+# A desktop terminal starts in the session's cwd: $HOME or the image's WORKDIR.
+if { [ "$PWD" = "$HOME" ] || [ "$PWD" = /OpenROAD-flow-scripts ]; } && [ -z "${ECE4203_CD_DONE:-}" ]; then
     export ECE4203_CD_DONE=1
     for _d in /workspaces/*/; do
         [ -d "$_d" ] && { cd "${_d%/}" || true; break; }
