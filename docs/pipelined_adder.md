@@ -34,7 +34,7 @@ should be active (not commented out).
 From a terminal, in `openroad_flow`:
 
 ```bash
-cd openroad_flow
+cd /workspaces/ece4203_code_2027/openroad_flow
 make DESIGN=adder64_pipelined FLOW_VARIANT=stages8
 make DESIGN=adder64_pipelined FLOW_VARIANT=stages8 clock_report
 ```
